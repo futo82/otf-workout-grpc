@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package workout;
+
+service WorkoutService {
+    rpc CreateWorkout (Workout) returns (WorkoutResponse) {}
+    rpc GetWorkout (WorkoutRequest) returns (Workout) {}
+    rpc UpdateWorkout (Workout) returns (WorkoutResponse) {}
+    rpc DeleteWorkout (WorkoutRequest) returns (WorkoutResponse) {}
+}
+
+message WorkoutRequest {
+    string workout_id = 1;
+}
+
+message Workout {
+    int64 workout_datetime = 1;
+    string coach = 2;
+    int32 gray_zone = 3;
+    int32 blue_zone = 4;
+    int32 green_zone = 5;
+    int32 orange_zone = 6;
+    int32 red_zone = 7;
+    int32 calories_burned = 8;
+    int32 splat_points = 9;
+    int32 average_heart_rate = 10;
+}
+
+message WorkoutResponse {
+    string message = 1;
+}
